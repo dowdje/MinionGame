@@ -3,9 +3,9 @@
 #include <cstdlib>
 #include <fstream>
 using namespace std;
-const int inventory_array_size = 3;
-string inventory_array[inventory_array_size]{"empty", "empty", "empty"};
-void buff()
+const int inventory_array_size = 3; // Initializes a maximum inventory size.
+string inventory_array[inventory_array_size] = {"empty", "empty", "empty"}; // Initializes an inventory array.
+void buff() // Reads buff spell to the screen.
 {
 cout << "******************************************\n"
      << "You are endowed with the POWER OF THE GODS!"
@@ -15,16 +15,16 @@ cout << "******************************************\n"
 //********************************************
 //FIRST TREASURE FUNCTION
 //********************************************
-string item_drop1 ()
+string item_drop1 () // A function that generates drops from low level enemies.
 {
     int drop_roll,
         drop;
     const int ARRAY_ITEM_SIZE = 6;
-    string array_item [ARRAY_ITEM_SIZE] = {"Nothing", "Lifeblood", "Corrupted Soul",
+    string array_item [ARRAY_ITEM_SIZE] = {"Nothing", "Lifeblood", "Corrupted Soul", // Populates an array of possible items
      "Knuckle Spikes", "Glittering Emerald Ring", "Gilded Behemoth Spine"};
 
     srand(time(NULL));
-    drop_roll = (rand() % 105 + 1);
+    drop_roll = (rand() % 105 + 1); // assigns proabilities for each potential item to be dropped and rolls for that item.
 
     if (drop_roll <= 70)
         {
@@ -62,12 +62,12 @@ string item_drop1 ()
 //********************************************
 //SECOND TREASURE FUNCTION
 //********************************************
-string item_drop2 ()
+string item_drop2 ()// A function that determines items to be dropped for high level enemies.
 {
-    int drop_roll,
-        drop;
+    int drop_roll, //Variable of the integer value rolled.
+        drop; // variable of which item gets called from the array
     const int ARRAY_ITEM_SIZE = 6;
-    string array_item [ARRAY_ITEM_SIZE] = {"Nothing", "Lifeblood", "Corrupted Soul",
+    string array_item [ARRAY_ITEM_SIZE] = {"Nothing", "Lifeblood", "Corrupted Soul",// Populates an array of potential items
      "Knuckle Spikes", "Glittering Emerald Ring", "Gilded Behemoth Spine"};
 
     srand(time(NULL));
@@ -114,22 +114,22 @@ int main()
 //********************************************
     string monster_name;
 
-    int monster,
-        exp,
-        exp_total = 0,
-        level = 1,
-        max_life = 50,
-        life,
-        monster_attack_counter = 0,
-        monster_damage,
-        heal,
-        spell_counter = 2,
-        intelligence = 1,
-        attack,
-        monster_atk_mod = 0,
-        hero_atk_mod = 0,
-        attack_roll,
-        drop_roll,
+    int monster, // The value of the roll for an enemy
+        exp, // the amount of experience an enemy gives
+        exp_total = 0, //Total experience earned
+        level = 1, //Player level
+        max_life = 50,// The highest life a player can have
+        life,// the current life a player has
+        monster_attack_counter = 0,// A counter that determines when an enemy will attack
+        monster_damage,// How much life is removed when a monster attacks
+        heal,//An action the user can take to gain life points
+        spell_counter = 2,// The well from which a player can use spells
+        intelligence = 1,//Determines the strength of spells
+        attack,// The amount of health a monster loses when a player attacks
+        monster_atk_mod = 0,// A modifier that helps determine the damage an enemy will do
+        hero_atk_mod = 0,// A modifier that gets added to the damage a player does
+        attack_roll,// A roll that determines the base attack of a player action
+        drop_roll,//A roll that determines the drop after an enemy dies
         defense = 0,
         flame,
         frost,
@@ -150,7 +150,7 @@ int main()
         do
         {
 
-        monster = rand() % 30 + ((21 + (5 * level))/2);
+           monster = rand() % 30 + ((21 + (5 * level))/2);
 
 
 //*********************************
